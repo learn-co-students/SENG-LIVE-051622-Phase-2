@@ -1,11 +1,29 @@
+// first, import useState from the react library to define the useState hook from within this component 
+import { useState } from 'react'
 import ProjectListItem from "./ProjectListItem";
 
 const ProjectList = ({ projects }) => {
 
-  const projectListItems = projects.map((project) => (
-    <ProjectListItem key={project.id} {...project} />
+  // second step, create some state 
+  const [searchQuery, setSearchQuery] = useState("")
+
+  const searchResults = projects.filter((project) => {
+    return project.name.toLowerCase().includes(searchQuery.toLowerCase())
+  })
+
+  const projectListItems = searchResults.map((project) => (
+    <ProjectListItem key={project.id} {...project}/>
   ));
 
+
+  // we need to update the searchQuery every time our user types in the search input
+  const handleSearch = (e) => {
+    // how do I update searchQuery
+
+    setSearchQuery(e.target.value)
+  }
+
+console.log(searchQuery)
 
   return (
     <section>
@@ -19,7 +37,8 @@ const ProjectList = ({ projects }) => {
         <button>Phase 2</button>
         <button>Phase 1</button>
       </div>
-      <input type="text" placeholder="Search..."/>
+
+      <input onChange={handleSearch} type="text" placeholder="Search..."/>
 
       <ul className="cards">{projectListItems}</ul>
     </section>

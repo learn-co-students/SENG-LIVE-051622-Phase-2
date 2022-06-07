@@ -17,15 +17,7 @@
 
 - Attach a 'click' event to the button that invokes the callback function `handleClick`
 
-#### 2. Add a click event to the clap button inside the `ProjectListItem` component:
-
-- Initialize state `clapCounts` set to 0
-
-- Create a function `handleClap` that will increment and update the `clapCounts` state by 1
-
-- Attach a 'click' event to the clap button that invokes the callback function `handleClap`
-
-#### 3. Implement a Filter by project name feature inside the `ProjectList` component:
+#### 2. Implement a Filter by project name feature inside the `ProjectList` component:
 
 - Initialize state `searchQuery` set to an empty string
 
@@ -34,6 +26,16 @@
 - When the `onChange` event occurs, update the `searchQuery` state to the value in the input field
 
 - Given the array of `projects`, filter the projects that include the value of the search query
+
+#### Bonus: Add a click event to the clap button inside the `ProjectListItem` component:
+
+- Initialize state `clapCounts` set to 0
+
+- Create a function `handleClap` that will increment and update the `clapCounts` state by 1
+
+- Attach a 'click' event to the clap button that invokes the callback function `handleClap`
+
+
 
 ### Events
 
