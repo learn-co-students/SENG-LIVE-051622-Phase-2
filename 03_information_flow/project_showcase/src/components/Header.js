@@ -1,12 +1,17 @@
 import React from "react";
 import { useState } from "react";
 
-const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+const Header = ({ isDarkMode, onUpdateDarkMode }) => {
+  // console.log(props);
+  // props is an object, and it only has key/value pairs when we pass props to a component
 
-  const handleClick = () => setIsDarkMode(!isDarkMode);
+  // object destructuring
 
-  const buttonTextContent = isDarkMode ? "Light Mode" : "Dark Mode";
+  // const { isDarkMode } = props;
+
+  // const handleClick = () => onUpdateDarkMode();
+
+  const buttonTextContent = isDarkMode ? "Dark Mode" : "Light Mode";
 
   return (
     <header>
@@ -14,7 +19,7 @@ const Header = () => {
         <span className="logo">{"//"}</span>
         Project Showcase
       </h1>
-      <button onClick={handleClick}>{buttonTextContent}</button>
+      <button onClick={onUpdateDarkMode}>{buttonTextContent}</button>
     </header>
   );
 };
