@@ -15,10 +15,20 @@ const App = () => {
 
   const onToggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  const onAddProject = (newProject) => {
+
+    // I need to add the newProject to the existing array of projects 
+    // and update the projects state with the new array 
+
+    setProjects([...projects, newProject])
+  }
+
+  console.log("projects", projects)
+
   return (
     <div className={isDarkMode ? "App" : "App light"}>
       <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
-      <ProjectForm />
+      <ProjectForm onAddProject={onAddProject}/>
       <button onClick={handleClick}>Load Projects</button>
       <ProjectList projects={projects} />
     </div>
